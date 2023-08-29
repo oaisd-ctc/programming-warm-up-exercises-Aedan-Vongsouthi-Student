@@ -6,89 +6,131 @@ namespace NoviceChallenges
     {
         static void Main(string[] args)
         {
-            // Use the Main method to test your functions.
+            int[] testarray = {3,7,91,53,82,16,162};
+            Console.WriteLine(LargestInArray(testarray));
         }
 
         // 1. Return the sum of two numbers.
         public static int Add(int a, int b)
         {
-            // TODO: Implement this method.
-            return 0;
+            int sum = a + b;
+
+            return sum;
         }
 
         // 2. Given an integer, return true if it's even, else return false.
         public static bool IsEven(int number)
         {
-            // TODO: Implement this method.
-            return false;
+            if (number % 2 == 0)
+            {
+                return true;
+            } else {
+                return false;
+            }
+            
         }
 
         // 3. Return the largest of three numbers.
         public static int MaxOfThree(int a, int b, int c)
         {
-            // HINT: You might want to use Math.Max function.
-            // TODO: Implement this method.
-            return 0;
+            int largest = Math.Max(a, Math.Max(b,c));
+            return largest;
         }
 
         // 4. Return the length of the given string.
         public static int StringLength(string s)
         {
-            // TODO: Implement this method.
-            return 0;
+            return s.Length;
         }
 
         // 5. Return true if the string starts with "Hello", otherwise return false.
         public static bool StartsHello(string s)
         {
-            // HINT: Use the string method "StartsWith".
-            // TODO: Implement this method.
-            return false;
+            if (s.StartsWith("Hello")||s.StartsWith("hello"))
+            {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         // 6. Reverse a given string.
         public static string ReverseString(string s)
         {
             char[] charArray = s.ToCharArray();
-            // TODO: Reverse the charArray.
-            return new string(charArray);
+            string reverse = "";
+            
+            for (int i = charArray.Length - 1; i >= 0; i--)
+            {
+                reverse += charArray[i];
+            }
+
+            return new string(reverse);
         }
 
         // 7. Return the factorial of a number.
         public static int Factorial(int n)
         {
-            if (n == 0) return 1;
-            // TODO: Calculate the factorial.
-            return 0;
+            int answer = 1; 
+
+            for (int i = 1; i <= n; i++)
+            {
+                answer = answer * i;
+            }
+            return answer;
         }
 
         // 8. Check if a number is a prime number.
         public static bool IsPrime(int number)
         {
             if (number <= 1) return false;
-            for (int i = 2; i < number; i++)
+
+            int a = 0;
+
+            for (int i = 1; i <= number; i++)
             {
-                if (number % i == 0) return false;
+                if (number % i == 0) 
+                a++;
             }
-            // TODO: Return the correct boolean value.
-            return false;
+
+            if(a == 2)
+            {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         // 9. Return the nth Fibonacci number.
         public static int Fibonacci(int n)
         {
             if (n <= 1) return n;
-            // TODO: Calculate the nth Fibonacci number.
-            return 0;
+            int num1 = 0;
+            int num2 = 1;
+            int answer = 0;
+            
+            for (int i = 2; i < n + 1; i++)
+            {
+                answer = num1 + num2;
+                num1 = num2;
+                num2 = answer;
+            }
+
+            return answer;
         }
 
         // 10. Given an array of integers, return the largest number.
         public static int LargestInArray(int[] numbers)
         {
             int largest = numbers[0];
-            for (int i = 1; i < numbers.Length; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                // TODO: Find the largest number in the array.
+                int temp = numbers[i];
+                if(largest < temp)
+                {
+                    largest = temp;
+                    
+                } 
             }
             return largest;
         }
